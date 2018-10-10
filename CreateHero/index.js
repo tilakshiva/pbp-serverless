@@ -5,7 +5,7 @@ module.exports = function(context, req) {
     process.env.CosmosDBURL,
     { auth: auth },
     (err, database) => {
-      if (err) throw err;
+      if (err) context.log('Error while connecting to the DB', err);
       let hero = ({ id, name, saying } = req.body);
       var db = database.db('admin');
 
